@@ -12,6 +12,7 @@ import org.fed333.ticket.booking.app.model.impl.TicketImpl;
 import org.fed333.ticket.booking.app.model.impl.UserImpl;
 import org.fed333.ticket.booking.app.repository.impl.component.StorageData;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import java.io.IOException;
@@ -23,7 +24,9 @@ import java.util.List;
 public class InitializeStorageWithPreparedDataBeanPostProcessor implements BeanPostProcessor {
 
     private static final String TARGET_BEAN_NAME = "storage";
-    private static final String STORAGE_SOURCE_JSON = "/init-data/storage.json";
+
+    @Value("${init.data.json.storage}")
+    private String storageSourceJson;
     private static final String JSON_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
     @Override
@@ -35,7 +38,7 @@ public class InitializeStorageWithPreparedDataBeanPostProcessor implements BeanP
             DateFormat df = new SimpleDateFormat(JSON_DATE_PATTERN);
             mapper.setDateFormat(df);
             try {
-                JsonNode jsonNode = mapper.readTree(getClass().getResource(STORAGE_SOURCE_JSON));
+                JsonNode jsonNode = mapper.readTree(getClass().getResource(storageSourceJson));
                 String eventsJsonString = jsonNode.get("events").toPrettyString();
                 String usersJsonString = jsonNode.get("users").toPrettyString();
                 String ticketsJsonString = jsonNode.get("tickets").toPrettyString();

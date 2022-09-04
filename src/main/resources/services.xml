@@ -12,6 +12,10 @@
 
     <bean class="org.fed333.ticket.booking.app.config.InitializeStorageWithPreparedDataBeanPostProcessor"/>
 
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations" value="classpath:application.properties"/>
+    </bean>
+
     <bean id="idGenerator"
           class="org.fed333.ticket.booking.app.repository.impl.component.LongIdGenerator"
           scope="prototype">
