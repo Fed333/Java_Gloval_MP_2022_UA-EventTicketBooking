@@ -1,5 +1,6 @@
 package org.fed333.ticket.booking.app.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ public class UserService {
     @Setter
     private SlicePaginator paginator;
 
+    @Setter
     private SaveEntityValidator<User, Long> saveUserValidator;
 
     private void init(){

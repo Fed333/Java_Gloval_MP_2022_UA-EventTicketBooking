@@ -40,7 +40,6 @@ public class SaveEntityValidator<E extends Identifiable<ID>, ID> {
             throw new RuntimeException("The " + entity.getClass().getName() + " object with id " + entity.getId() + "is missing.");
         }
         log.info(entity.getClass().getName() + " {} passed update validation.", entity);
-
     }
 
 }

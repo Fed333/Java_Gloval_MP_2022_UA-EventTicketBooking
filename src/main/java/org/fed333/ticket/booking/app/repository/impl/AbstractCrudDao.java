@@ -26,7 +26,8 @@ public abstract class AbstractCrudDao<E extends Identifiable<ID>, ID> implements
         if (Objects.isNull(e.getId())){
             e.setId(nextId());
         }
-        return data.put(e.getId(), e);
+        data.put(e.getId(), e);
+        return e;
     }
 
     @Override

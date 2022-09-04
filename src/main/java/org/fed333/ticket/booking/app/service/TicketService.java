@@ -26,12 +26,13 @@ public class TicketService {
     private final EventRepository eventRepository;
 
     @Setter
-    private SlicePaginator slicePaginator;
+    private SlicePaginator paginator;
 
-    private SaveEntityValidator<Ticket, Long> ticketSaveValidator;
+    @Setter
+    private SaveEntityValidator<Ticket, Long> saveTicketValidator;
 
     private void init() {
-        ticketSaveValidator.setRepository(ticketRepository);
+        saveTicketValidator.setRepository(ticketRepository);
     }
 
     public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
@@ -54,11 +55,11 @@ public class TicketService {
     }
 
     public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
-        return slicePaginator.paginateList(ticketRepository.getAllByUserId(user.getId()), pageNum, pageSize);
+        return paginator.paginateList(ticketRepository.getAllByUserId(user.getId()), pageNum, pageSize);
     }
 
     public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
-        return slicePaginator.paginateList(ticketRepository.getAllByEventId(event.getId()), pageNum, pageSize);
+        return paginator.paginateList(ticketRepository.getAllByEventId(event.getId()), pageNum, pageSize);
     }
 
     public boolean cancelTicket(long ticketId) {

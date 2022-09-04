@@ -21,6 +21,7 @@ public class EventService {
     @Setter
     private SlicePaginator paginator;
 
+    @Setter
     private SaveEntityValidator<Event, Long> saveEventValidator;
 
     private void init() {
