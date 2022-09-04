@@ -5,9 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            https://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
-                           https://www.springframework.org/schema/context/spring-context.xsd">
+                           https://www.springframework.org/schema/context/spring-context.xsd"
+       default-init-method="init">
 
     <context:annotation-config/>
+
+    <bean class="org.fed333.ticket.booking.app.config.InitializeStorageWithPreparedDataBeanPostProcessor"/>
 
     <bean id="idGenerator"
           class="org.fed333.ticket.booking.app.repository.impl.component.LongIdGenerator"
@@ -64,6 +67,13 @@
         <constructor-arg ref="userService"/>
         <constructor-arg ref="eventService"/>
         <constructor-arg ref="ticketService"/>
+    </bean>
+
+    <bean id="storage"
+          class="org.fed333.ticket.booking.app.repository.impl.component.StorageData">
+        <property name="eventRepository" ref="eventRepository"/>
+        <property name="userRepository" ref="userRepository"/>
+        <property name="ticketRepository" ref="ticketRepository"/>
     </bean>
 
 </beans>

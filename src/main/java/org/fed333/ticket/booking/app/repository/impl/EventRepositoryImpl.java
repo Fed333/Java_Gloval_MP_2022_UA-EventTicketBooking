@@ -1,5 +1,6 @@
 package org.fed333.ticket.booking.app.repository.impl;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.fed333.ticket.booking.app.repository.EventRepository;
 import org.fed333.ticket.booking.app.model.Event;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class EventRepositoryImpl extends AbstractCrudDao<Event,Long> implements EventRepository {
 
-    @Setter
+    @Getter @Setter
     private LongIdGenerator idGenerator;
 
     @Override

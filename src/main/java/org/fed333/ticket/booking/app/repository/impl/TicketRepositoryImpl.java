@@ -1,5 +1,6 @@
 package org.fed333.ticket.booking.app.repository.impl;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.fed333.ticket.booking.app.model.Ticket;
 import org.fed333.ticket.booking.app.repository.TicketRepository;
@@ -10,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class TicketRepositoryImpl extends AbstractCrudDao<Ticket, Long> implements TicketRepository {
 
-    @Setter
+    @Getter @Setter
     private LongIdGenerator idGenerator;
 
     @Override

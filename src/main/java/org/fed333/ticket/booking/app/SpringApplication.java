@@ -9,6 +9,12 @@ import org.fed333.ticket.booking.app.model.User;
 import org.fed333.ticket.booking.app.model.impl.EventImpl;
 import org.fed333.ticket.booking.app.model.impl.TicketImpl;
 import org.fed333.ticket.booking.app.model.impl.UserImpl;
+import org.fed333.ticket.booking.app.repository.EventRepository;
+import org.fed333.ticket.booking.app.repository.TicketRepository;
+import org.fed333.ticket.booking.app.repository.UserRepository;
+import org.fed333.ticket.booking.app.service.EventService;
+import org.fed333.ticket.booking.app.service.TicketService;
+import org.fed333.ticket.booking.app.service.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.ParseException;
@@ -26,7 +32,7 @@ public class SpringApplication {
         BookingFacade bookingFacade = context.getBean(BookingFacade.class);
         UserImpl user = UserImpl.builder()
                 .name("Roman")
-                .email("kovalchuk.roman03@gmail.com").build();
+                .email("romakovalcuk524@gmail.com").build();
         bookingFacade.createUser(user);
         User userById = bookingFacade.getUserById(user.getId());
         log.info("userById.equals(user) = {}", userById.equals(user));
