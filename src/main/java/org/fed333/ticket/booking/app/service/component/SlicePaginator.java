@@ -21,7 +21,7 @@ public class SlicePaginator {
     public <T> List<T> paginateList(List<T> list, int cursor, int size) {
         requiredValidPaginationParams(cursor, size);
         size = Math.min(list.size(), size);
-        return list.subList((cursor-1)*size, (cursor-1)*size+size);
+        return list.subList((cursor-1)*size, Math.min((cursor-1)*size+size, list.size()));
     }
 
     /**
