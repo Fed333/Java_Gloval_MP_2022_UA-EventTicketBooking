@@ -36,4 +36,11 @@ public class TestingDataUtils {
                 .name("User" + id)
                 .email("user" + id + "@mail.com").build();
     }
+
+    public static User createTestUserWithName(long id, String name) {
+        return UserImpl.builder()
+                .id(id)
+                .name(name)
+                .email("user" + id + "@mail.com").build();
+    }
 }
