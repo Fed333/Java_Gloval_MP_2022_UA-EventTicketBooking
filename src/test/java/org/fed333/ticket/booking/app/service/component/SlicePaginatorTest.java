@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/main/resources/services.xml")
+@ContextConfiguration(locations = "file:src/test/resources/slice-paginator-test.xml")
 @TestExecutionListeners(DependencyInjectionTestExecutionListener.class)
 public class SlicePaginatorTest {
 
