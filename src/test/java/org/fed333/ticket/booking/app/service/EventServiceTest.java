@@ -81,7 +81,7 @@ public class EventServiceTest {
         int cursor = 2, size = 4;
         List<Event> testList = Stream.iterate(1L, s -> s + 1).limit(10).map(this::createTestEvent).collect(Collectors.toList());
         List<Event> expectedList = Stream.iterate(5L, s -> s + 1).limit(4).map(this::createTestEvent).collect(Collectors.toList());
-        when(mockedRepository.getAllByDate(date)).thenReturn(testList);
+        when(mockedRepository.getAllByDay(date)).thenReturn(testList);
 
         assertThat(new ArrayList<>(eventService.getEventsForDay(date, size, cursor))).usingComparatorForType(eventEqualityComparator, Event.class).isEqualTo(expectedList);
     }
