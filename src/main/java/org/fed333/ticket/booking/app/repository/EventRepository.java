@@ -10,4 +10,6 @@ public interface EventRepository extends CrudRepository<Event, Long>{
     List<Event> getAllByTitle(String title);
 
     List<Event> getAllByDate(Date day);
+
+    List<Event> getAllByDay(Date day);
 }
