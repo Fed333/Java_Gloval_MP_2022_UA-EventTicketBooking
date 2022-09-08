@@ -37,7 +37,7 @@ public class EventService {
     }
 
     public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
-        return paginator.paginateList(eventRepository.getAllByDate(day), pageNum, pageSize);
+        return paginator.paginateList(eventRepository.getAllByDay(day), pageNum, pageSize);
     }
 
     public Event createEvent(Event event) {

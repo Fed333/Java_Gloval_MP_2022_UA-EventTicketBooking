@@ -21,7 +21,7 @@ public class SaveEntityValidator<E extends Identifiable<ID>, ID> {
      * @throws RuntimeException when the object has id and there is another one with same id
      * */
     public void validateCreate(E entity) {
-        if (nonNull(entity.getId()) && nonNull(repository.getById(entity.getId()))){
+        if (nonNull(entity.getId()) && repository.existsById(entity.getId())){
             throw new RuntimeException("The " + entity.getClass().getName() + " object with id " + entity.getId() + " already exists");
         }
         log.info("{} passed create validation.", entity);
@@ -36,7 +36,7 @@ public class SaveEntityValidator<E extends Identifiable<ID>, ID> {
         if (isNull(entity.getId())){
             throw new RuntimeException("The " + entity.getClass().getName() + " object must have an id.");
         }
-        if (isNull(repository.getById(entity.getId()))) {
+        if (!repository.existsById(entity.getId())) {
             throw new RuntimeException("The " + entity.getClass().getName() + " object with id " + entity.getId() + "is missing.");
         }
         log.info(entity.getClass().getName() + " {} passed update validation.", entity);
