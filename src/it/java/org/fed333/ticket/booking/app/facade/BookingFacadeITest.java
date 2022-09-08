@@ -306,7 +306,7 @@ public class BookingFacadeITest {
     @Test
     public void getBookedTickets_shouldReturnByUser() {
         User testUser = testUsers.get(1L);
-        List<Ticket> expectedTickets = Arrays.asList(testTickets.get(1L), testTickets.get(9L));
+        List<Ticket> expectedTickets = Arrays.asList(testTickets.get(1L), testTickets.get(10L));
 
         List<Ticket> actualTickets = facade.getBookedTickets(testUser, 2, 1);
 
@@ -326,7 +326,7 @@ public class BookingFacadeITest {
     @Test
     public void getBookedTickets_shouldReturnByUserPage2() {
         User testUser = testUsers.get(1L);
-        List<Ticket> expectedTickets = Collections.singletonList(testTickets.get(9L));
+        List<Ticket> expectedTickets = Collections.singletonList(testTickets.get(10L));
 
         List<Ticket> actualTickets = facade.getBookedTickets(testUser, 1, 2);
 
