@@ -22,22 +22,22 @@ public class TestingDataUtils {
                 .date(TEST_DATE).build();
     }
 
-    public static Ticket createTestTicket(long id) {
+    public static Ticket createTestTicket(Long id) {
         return TicketImpl.builder()
                 .userId(id)
                 .eventId(id)
                 .category(Ticket.Category.STANDARD)
-                .place((int)id).build();
+                .place((int)(long)id).build();
     }
 
-    public static User createTestUser(long id) {
+    public static User createTestUser(Long id) {
         return UserImpl.builder()
                 .id(id)
                 .name("User" + id)
                 .email("user" + id + "@mail.com").build();
     }
 
-    public static User createTestUserWithName(long id, String name) {
+    public static User createTestUserWithName(Long id, String name) {
         return UserImpl.builder()
                 .id(id)
                 .name(name)
