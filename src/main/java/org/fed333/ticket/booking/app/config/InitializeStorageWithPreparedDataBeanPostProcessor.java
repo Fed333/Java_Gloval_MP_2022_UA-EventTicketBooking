@@ -3,6 +3,8 @@ package org.fed333.ticket.booking.app.config;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.fed333.ticket.booking.app.model.Event;
 import org.fed333.ticket.booking.app.model.Ticket;
@@ -25,7 +27,7 @@ public class InitializeStorageWithPreparedDataBeanPostProcessor implements BeanP
 
     private static final String TARGET_BEAN_NAME = "storage";
 
-    @Value("${init.data.json.storage}")
+    @Getter @Setter
     private String storageSourceJson;
     private static final String JSON_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
